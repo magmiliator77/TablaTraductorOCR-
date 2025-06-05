@@ -20,3 +20,4 @@ También puedes abrir la interfaz gráfica con:
 ```bash
 python tabla_traductor.py --gui
 ```
+
