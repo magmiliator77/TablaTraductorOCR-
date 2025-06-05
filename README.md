@@ -14,3 +14,9 @@ Esto instalará las bibliotecas indicadas en `requirements.txt`. Luego podrás e
 ```bash
 python tabla_traductor.py ruta/a/imagen.png
 ```
+
+También puedes abrir la interfaz gráfica con:
+
+```bash
+python tabla_traductor.py --gui
+```
