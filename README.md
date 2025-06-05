@@ -21,11 +21,3 @@ También puedes abrir la interfaz gráfica con:
 python tabla_traductor.py --gui
 ```
 
-Si al ejecutar el script aparecen errores de importación para `opencv-python`,
-`pytesseract` o `googletrans`, asegúrate de haber ejecutado previamente el
-instalador. También debes tener **Tesseract OCR** instalado en tu sistema.
-En Debian/Ubuntu puedes instalarlo con:
-
-```bash
-sudo apt-get install tesseract-ocr
-```

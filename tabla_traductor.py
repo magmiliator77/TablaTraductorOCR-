@@ -10,20 +10,7 @@ o bien abrir la interfaz gráfica:
 import argparse
 import json
 
-try:
-    import cv2  # opencv-python
-except ImportError:  # pragma: no cover - handled gracefully
-    cv2 = None
-
-try:
-    import pytesseract
-except ImportError:  # pragma: no cover - handled gracefully
-    pytesseract = None
-
-try:
-    from googletrans import Translator
-except ImportError:  # pragma: no cover - handled gracefully
-    Translator = None
+ Translator
 
 import tkinter as tk
 from tkinter import filedialog, messagebox
@@ -31,11 +18,7 @@ from tkinter import filedialog, messagebox
 
 def preprocess_image(path: str):
     """Carga una imagen y realiza un preprocesamiento básico para OCR."""
-    if cv2 is None:
-        raise ImportError(
-            "Falta la biblioteca opencv-python. Ejecuta 'python instalador.py' "
-            "para instalar las dependencias"
-        )
+
     # 1. Cargar la imagen con OpenCV
     image = cv2.imread(path)
     if image is None:
@@ -52,24 +35,14 @@ def preprocess_image(path: str):
 
 def extraer_lineas(image) -> list:
     """Ejecuta OCR sobre la imagen y devuelve una lista de líneas."""
-    if pytesseract is None:
-        raise ImportError(
-            "Falta la biblioteca pytesseract. Ejecuta 'python instalador.py' "
-            "para instalar las dependencias"
-        )
-    # 2. Ejecutar OCR con pytesseract
-    texto = pytesseract.image_to_string(image, lang="spa")
+
     # Dividir por saltos de línea e ignorar líneas vacías
     return [line.strip() for line in texto.splitlines() if line.strip()]
 
 
 def traducir_lineas(lineas: list) -> dict:
     """Traduce cada línea de español a inglés y devuelve un diccionario."""
-    if Translator is None:
-        raise ImportError(
-            "Falta la biblioteca googletrans. Ejecuta 'python instalador.py' "
-            "para instalar las dependencias"
-        )
+
     # 3. Traducir cada línea con googletrans
     traductor = Translator()
     traducciones = {}
